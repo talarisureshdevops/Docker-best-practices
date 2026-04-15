@@ -3,7 +3,7 @@
 # అన్నీ final image లో ఉంటాయి ❌ (size పెద్దది)
 FROM node:20.20.2-alpine3.23 as builder
 WORKDIR /app
-COPY pakage.json .
+COPY package.json .
 COPY *.js .
 RUN npm install
 
