@@ -16,5 +16,6 @@ ENV REDIS_HOST="redis" \
 RUN addgroup -S roboshop && adduser -S roboshop -G roboshop
 RUN chown -R roboshop:roboshop /app
 USER roboshop
-CMD ["server.js"]
-ENTRYPOINT ["node"]
+# CMD ["server.js"]
+# ENTRYPOINT ["node"]
+CMD ["node", "server.js"]
