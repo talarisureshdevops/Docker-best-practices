@@ -2,14 +2,14 @@ services:
   catalogue:
  #  dockerfile: catalogue.dockerfile
     build: ./catalogue
-    image: talarisureshdevops/catalogue:1.0.0
+    image: talarisureshdevops/catalogue:2.0.0
     container_name: catalogue
     depends_on:
       - mongodb
 
   user:
     build: ./user
-    image: talarisureshdevops/user:1.0.0
+    image: talarisureshdevops/user:2.0.0
     container_name: user
     depends_on:
       - redis
@@ -17,7 +17,7 @@ services:
 
   cart:
     build: ./cart
-    image: talarisureshdevops/cart:1.0.0
+    image: talarisureshdevops/cart:2.0.0
     container_name: cart
     depends_on:
       - redis
@@ -25,7 +25,7 @@ services:
 
   shipping:
     build: ./shipping
-    image: talarisureshdevops/shipping:1.0.0
+    image: talarisureshdevops/shipping:2.0.0
     container_name: shipping
     depends_on:
       - mysql
@@ -33,7 +33,7 @@ services:
 
   payment:
     build: ./payment
-    image: talarisureshdevops/payment:1.0.0
+    image: talarisureshdevops/payment:2.0.0
     container_name: payment
     environment:
       CART_HOST: "cart"
@@ -50,7 +50,7 @@ services:
 
   frontend:
     build: ./frontend
-    image: talarisureshdevops/frontend:1.0.0
+    image: talarisureshdevops/frontend:2.0.0
     container_name: frontend
     ports:
       - "80:80"
@@ -63,7 +63,7 @@ services:
 
   mongodb:
     build: ./mongodb
-    image: talarisureshdevops/mongodb:1.0.0
+    image: talarisureshdevops/mongodb:2.0.0
     container_name: mongodb
     volumes:
     - /:/data/db
@@ -75,7 +75,7 @@ services:
     - redis:/data
   mysql:
     build: ./mysql
-    image: talarisureshdevops/mysql:1.0.0
+    image: talarisureshdevops/mysql:2.0.0
     container_name: mysql
     volumes:
     - mysql:/var/lib/mysql

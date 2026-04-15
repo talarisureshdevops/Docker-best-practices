@@ -1,5 +1,5 @@
 # stage 1
-FROM maven:3.9.14 as builder
+FROM maven:3.9.14 AS builder
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
@@ -8,8 +8,8 @@ RUN mv target/*.jar shipping.jar
 # stage 2
 FROM eclipse-temurin:17-jre-alpine
 EXPOSE 8080
-ENV CART_ENDPOINT=cart:8080 \
-    DB_HOST=mysql
+ENV CART_ENDPOINT="cart:8080" \
+    DB_HOST="mysql"
 WORKDIR /app
 RUN addgroup -S roboshop && adduser -S roboshop -G roboshop && \
     chown -R roboshop:roboshop /app

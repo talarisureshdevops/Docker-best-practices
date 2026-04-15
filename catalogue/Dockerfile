@@ -1,14 +1,14 @@
 # stage 1 build stage → dependencies install
 # source code | node_modules | build tools | cache files | 
-# అన్నీ final image లో ఉంటాయి ❌ (size పెద్దది)
-FROM node:20.20.2-alpine3.23 as builder
+
+FROM node:20.20.2-alpine3.23 AS builder
 WORKDIR /app
 COPY package.json .
 COPY *.js .
 RUN npm install
 
 # stage 2 final stage → only required files copy | only runtime files (app + required modules)|
-# size = చిన్నది (~100MB లేదా ఇంకా తక్కువ)
+
 FROM node:20.20.2-alpine3.23
 WORKDIR /app
 EXPOSE 8080
